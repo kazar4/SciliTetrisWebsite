@@ -1,6 +1,6 @@
 # Scili Tetris & Games Display Website
 
-### Check it out at [scilitetris.kazar4.com](https://scilitetris.kazar4.com) 
+### Check the Project out at [scilitetris.kazar4.com](https://scilitetris.kazar4.com) 
 #### You can find our main project repo [here](https://github.com/kazar4/SciliTetris)
 
 <a href="https://scilitetris.kazar4.com">
