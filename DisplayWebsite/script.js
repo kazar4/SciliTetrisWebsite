@@ -64,6 +64,8 @@ function customAlert(message) {
   
     //overlay.style.display = "flex";
 
+    msg.innerHTML = "TEEEEST if there is an alert"
+
     overlay.classList.add("active");
     box.style.display = "block";
   
