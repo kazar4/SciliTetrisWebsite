@@ -34,10 +34,14 @@ function customAlert(message) {
     const ok = document.getElementById("custom-alert-ok");
   
     msg.textContent = message;
-    overlay.style.display = "flex";
+    //overlay.style.display = "flex";
+
+    overlay.classList.add("active");
   
     ok.onclick = () => {
-      overlay.style.display = "none";
+     //overlay.style.display = "none";
+     overlay.classList.remove("active");
+    
     };
   }
 
