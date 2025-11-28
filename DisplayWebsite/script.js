@@ -12,24 +12,24 @@ let caughtPromise = false;
 
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-bgVideo.play().catch(() => {
-    caughtPromise = true;
-    let warningText = "";
+// bgVideo.play().catch(() => {
+//     caughtPromise = true;
+//     let warningText = "";
 
-    if (isIOS) {
-        warningText =
-          "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
-      } else {
-        warningText =
-          "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
-      }
+//     if (isIOS) {
+//         warningText =
+//           "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
+//       } else {
+//         warningText =
+//           "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
+//       }
 
-      window.onload = function () {
-        setTimeout(function () {
-            customAlert(warningText);
-        }, 1000);
-      };
-});
+//       window.onload = function () {
+//         setTimeout(function () {
+//             customAlert(warningText);
+//         }, 1000);
+//       };
+// });
 
 
 window.onload = function () {
