@@ -423,10 +423,6 @@ pre code, pre tt {
 }
 
 
-
-
-
-
 table {
     border-color: #52525b;
     border-radius: 4px;
@@ -522,9 +518,6 @@ tbody tr:first-child{
     animation: fadeInScale 0.22s ease-out;
     font-size: clamp(14px, 2.5vw, 18px);
   }
-  
-
-
   
   #custom-alert-message {
     white-space: pre-wrap;       /* default: respect \n */
