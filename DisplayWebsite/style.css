@@ -21,38 +21,40 @@ body {
 }
 
 .video-background {
-    position: fixed; /* cover entire viewport including under nav bars */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh; /* full viewport height */
+    width: 100%;
+    height: 100dvh;
     overflow: hidden;
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.17);
 }
 
-.video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover; /* keeps video fully covering container */
-    filter: blur(2px);
+/* iPhones / tall screens */
+@media screen and (min-aspect-ratio: 9/19) {
+    .video-background video {
+        transform: scaleY(1.05); /* slightly scale vertically */
+    }
 }
 
 .black-screen {
-    position: fixed; /* fixed so it overlays the video fully */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     background-color: rgba(0, 0, 0, 0.1);
     z-index: 2;
-    pointer-events: none; /* allow clicks to pass through */
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    filter: blur(2px);
 }
 
 .blogText {
@@ -477,21 +479,16 @@ tbody tr:first-child{
     border-left: none;
 }
 
-/* Keep content constrained inside the video */
-.blogText {
-    position: absolute; /* already absolute */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;       /* match the video height */
-    overflow-y: auto;   /* scroll inside the video */
+
+#container {
+    position: relative;        /* keep it positioned relative to viewport */
+    overflow-y: auto;          /* allow vertical scrolling */
+    max-height: 100vh;         /* restrict scrollable area to viewport height */
+    padding-bottom: env(safe-area-inset-bottom); /* respect iPhone home indicator */
     box-sizing: border-box;
-    padding: 10% 5%;    /* optional, same as before */
 }
 
-/* iOS safe area support so content doesn't go under the notch/home indicator */
-@supports(padding: env(safe-area-inset-bottom)) {
-    .blogText {
-        padding-bottom: calc(10% + env(safe-area-inset-bottom));
-    }
+/* Optional: add some padding at top for status bar on iOS */
+body {
+    padding-top: env(safe-area-inset-top);
 }
