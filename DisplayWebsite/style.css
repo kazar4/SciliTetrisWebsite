@@ -501,6 +501,7 @@ tbody tr:first-child{
 
   
   #custom-alert-box {
+    display: none;
     position: relative;
     background: #1b1b1d;
     padding: 15px 30px;

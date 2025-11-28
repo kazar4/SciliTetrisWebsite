@@ -32,15 +32,18 @@ function customAlert(message) {
     const overlay = document.getElementById("custom-alert-overlay");
     const msg = document.getElementById("custom-alert-message");
     const ok = document.getElementById("custom-alert-ok");
+    const box = document.getElementById("custom-alert-box");
   
     msg.textContent = message;
     //overlay.style.display = "flex";
 
     overlay.classList.add("active");
+    box.style.display = "block";
   
     ok.onclick = () => {
      //overlay.style.display = "none";
      overlay.classList.remove("active");
+     box.style.display = "none";
     
     };
   }
