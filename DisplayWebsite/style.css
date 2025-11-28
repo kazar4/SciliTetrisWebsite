@@ -490,7 +490,7 @@ tbody tr:first-child{
     height: 100vh;
     position: fixed;
     background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
     transition: opacity 0.22s ease-out;
   }
   
