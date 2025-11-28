@@ -29,12 +29,39 @@ bgVideo.play().catch(() => {
 });
 
 function customAlert(message) {
-    const overlay = document.getElementById("custom-alert-overlay");
-    const msg = document.getElementById("custom-alert-message");
-    const ok = document.getElementById("custom-alert-ok");
-    const box = document.getElementById("custom-alert-box");
-  
+    // const overlay = document.getElementById("custom-alert-overlay");
+    // const msg = document.getElementById("custom-alert-message");
+    // const ok = document.getElementById("custom-alert-ok");
+    // const box = document.getElementById("custom-alert-box");
+    // Create overlay container
+    const overlay = document.createElement("div");
+    overlay.id = "custom-alert-overlay";
+
+    // Create the alert box
+    const box = document.createElement("div");
+    box.id = "custom-alert-box";
+
+    // Message
+    const msg = document.createElement("p");
+    msg.id = "custom-alert-message";
     msg.textContent = message;
+
+    // OK button
+    const btn = document.createElement("button");
+    btn.id = "custom-alert-ok";
+    btn.textContent = "OK";
+
+    // Close alert
+    btn.addEventListener("click", () => {
+        overlay.remove();
+    });
+
+    // Build DOM structure
+    box.appendChild(msg);
+    box.appendChild(btn);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  
     //overlay.style.display = "flex";
 
     overlay.classList.add("active");
