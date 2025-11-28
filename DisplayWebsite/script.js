@@ -6,6 +6,29 @@ const positions = ['arc-1', 'arc-2', 'arc-3'];
 const positionsText = ['tech details!', 'the project!', 'photos'];
 const links = ["./tech.html", "./about.html", "./photos.html"];
 
+window.addEventListener('load', () => {
+    const video = document.querySelector('.video-background video');
+    const container = document.getElementById('container');
+
+    function resizeContainer() {
+        const rect = video.getBoundingClientRect();
+        container.style.position = 'absolute';
+        container.style.top = rect.top + 'px';
+        container.style.height = rect.height + 'px';
+        container.style.left = rect.left + 'px';
+        container.style.width = rect.width + 'px';
+        container.style.overflowY = 'auto';
+    }
+
+    // initial resize
+    resizeContainer();
+
+    // also resize if device orientation changes
+    window.addEventListener('resize', resizeContainer);
+    window.addEventListener('orientationchange', resizeContainer);
+});
+
+
 function changeLocation(i) {
     console.log("hi")
     console.log("going to " + links[i])
