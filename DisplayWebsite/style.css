@@ -492,6 +492,7 @@ tbody tr:first-child{
   }
   
   #custom-alert-box {
+    position: relative;
     background: #1b1b1d;
     padding: 15px 30px;
     border-radius: 14px;
@@ -530,6 +531,7 @@ tbody tr:first-child{
  
   /* Button */
   #custom-alert-ok {
+    position: relative;
     font-size: clamp(14px, 3vw, 18px);
     padding: clamp(10px, 2.5vw, 14px);
     margin-top: 1px;
