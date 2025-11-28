@@ -8,102 +8,102 @@ const positions = ['arc-1', 'arc-2', 'arc-3'];
 const positionsText = ['tech details!', 'the project!', 'photos'];
 const links = ["./tech.html", "./about.html", "./photos.html"];
 
-// let bgVideo = document.getElementById("bg");
-// let caughtPromise = false;
-// const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+let bgVideo = document.getElementById("bg");
+let caughtPromise = false;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-// // bgVideo.play().catch(() => {
-// //     caughtPromise = true;
-// //     let warningText = "";
+bgVideo.play().catch(() => {
+    caughtPromise = true;
+    let warningText = "";
 
-// //     if (isIOS) {
-// //         warningText =
-// //           "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
-// //       } else {
-// //         warningText =
-// //           "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
-// //       }
+    if (isIOS) {
+        warningText =
+          "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
+      } else {
+        warningText =
+          "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
+      }
 
-// //       window.onload = function () {
-// //         setTimeout(function () {
-// //             customAlert(warningText);
-// //         }, 1000);
-// //       };
-// // });
-
-
-// window.onload = function () {
-//     alert("webstie loaded pause")
-//     setTimeout(function () {
-//         //caughtPromise == false && 
-//         alert(bgVideo.paused)
-//         alert(bgVideo.readyState)
-//         if ((bgVideo.paused || bgVideo.readyState < 2)) {
-//             alert("caught pause")
-//             let warningText = "";
-//             if (isIOS) {
-//                 warningText =
-//                 "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
-//             } else {
-//                 warningText =
-//                 "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
-//             }
-//         }
-
-//         customAlert(warningText);
-
-//     }, 1000);
-//   };
+      window.onload = function () {
+        setTimeout(function () {
+            customAlert(warningText);
+        }, 1000);
+      };
+});
 
 
-// function customAlert(message) {
-//     // const overlay = document.getElementById("custom-alert-overlay");
-//     // const msg = document.getElementById("custom-alert-message");
-//     // const ok = document.getElementById("custom-alert-ok");
-//     // const box = document.getElementById("custom-alert-box");
-//     // Create overlay container
-//     const overlay = document.createElement("div");
-//     overlay.id = "custom-alert-overlay";
+window.onload = function () {
+    alert("webstie loaded pause")
+    setTimeout(function () {
+        //caughtPromise == false && 
+        alert(bgVideo.paused)
+        alert(bgVideo.readyState)
+        if ((bgVideo.paused || bgVideo.readyState < 2)) {
+            alert("caught pause")
+            let warningText = "";
+            if (isIOS) {
+                warningText =
+                "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
+            } else {
+                warningText =
+                "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
+            }
+        }
 
-//     // Create the alert box
-//     const box = document.createElement("div");
-//     box.id = "custom-alert-box";
+        customAlert(warningText);
 
-//     // Message
-//     const msg = document.createElement("p");
-//     msg.id = "custom-alert-message";
-//     msg.textContent = message;
+    }, 1000);
+  };
 
-//     // OK button
-//     const btn = document.createElement("button");
-//     btn.id = "custom-alert-ok";
-//     btn.textContent = "OK";
 
-//     // Close alert
-//     btn.addEventListener("click", () => {
-//         overlay.remove();
-//     });
+function customAlert(message) {
+    // const overlay = document.getElementById("custom-alert-overlay");
+    // const msg = document.getElementById("custom-alert-message");
+    // const ok = document.getElementById("custom-alert-ok");
+    // const box = document.getElementById("custom-alert-box");
+    // Create overlay container
+    const overlay = document.createElement("div");
+    overlay.id = "custom-alert-overlay";
 
-//     // Build DOM structure
-//     box.appendChild(msg);
-//     box.appendChild(btn);
-//     overlay.appendChild(box);
-//     document.getElementById("popupContainer").appendChild(overlay);
+    // Create the alert box
+    const box = document.createElement("div");
+    box.id = "custom-alert-box";
+
+    // Message
+    const msg = document.createElement("p");
+    msg.id = "custom-alert-message";
+    msg.textContent = message;
+
+    // OK button
+    const btn = document.createElement("button");
+    btn.id = "custom-alert-ok";
+    btn.textContent = "OK";
+
+    // Close alert
+    btn.addEventListener("click", () => {
+        overlay.remove();
+    });
+
+    // Build DOM structure
+    box.appendChild(msg);
+    box.appendChild(btn);
+    overlay.appendChild(box);
+    document.getElementById("popupContainer").appendChild(overlay);
   
-//     //overlay.style.display = "flex";
+    //overlay.style.display = "flex";
 
-//     msg.innerHTML = message;
+    msg.innerHTML = message;
 
-//     overlay.classList.add("active");
-//     box.style.display = "block";
+    overlay.classList.add("active");
+    box.style.display = "block";
   
-//     // ok.onclick = () => {
-//     //  //overlay.style.display = "none";
-//     //  overlay.classList.remove("active");
-//     //  box.style.display = "none";
+    // ok.onclick = () => {
+    //  //overlay.style.display = "none";
+    //  overlay.classList.remove("active");
+    //  box.style.display = "none";
     
-//     // };
-//   }
+    // };
+  }
 
 // Apparently works for android
 // if ('connection' in navigator && navigator.connection.saveData) {
