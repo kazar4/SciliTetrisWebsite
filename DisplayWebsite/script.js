@@ -41,11 +41,10 @@ function customAlert(message) {
     };
   }
 
-bgVideo.play = () => Promise.reject("Forced autoplay failure");
-
-if ('connection' in navigator && navigator.connection.saveData) {
-    alert("Data Saver mode is enabled. Background video may not play.");
-}
+// Apparently works for android
+// if ('connection' in navigator && navigator.connection.saveData) {
+//     alert("Data Saver mode is enabled. Background video may not play.");
+// }
 
 function changeLocation(i) {
     console.log("hi")
