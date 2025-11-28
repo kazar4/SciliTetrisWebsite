@@ -32,8 +32,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100dvh;
+    width: 150%;
+    height: 150%;
     overflow: hidden;
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.17);
