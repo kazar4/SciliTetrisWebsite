@@ -20,8 +20,7 @@ bgVideo.play().catch(() => {
         warningText =
           "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
       }
-      //warning.style.display = "block";
-    //   setTimeout(() => {alert(warningText)}, 500)
+
       window.onload = function () {
         setTimeout(function () {
             customAlert(warningText);
