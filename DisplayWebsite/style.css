@@ -22,9 +22,9 @@ body {
 
 /* iPhones / tall screens */
 @media screen and (min-aspect-ratio: 9/19) {
-    .video-background {
-        width: 110%;
-        height: 110%;
+    .video-background video {
+        width: 150%;
+        height: 150%;
     }
 }
 
@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 150%;
     height: 150%;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.17);
 }
