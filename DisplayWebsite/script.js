@@ -33,8 +33,11 @@ bgVideo.play().catch(() => {
 
 
 window.onload = function () {
+    alert("webstie loaded pause")
     setTimeout(function () {
         //caughtPromise == false && 
+        alert(bgVideo.paused)
+        alert(bgVideo.readyState)
         if ((bgVideo.paused || bgVideo.readyState < 2)) {
             alert("caught pause")
             let warningText = "";
