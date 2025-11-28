@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'PixelFont', sans-serif;
-    height: 110vh;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
