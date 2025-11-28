@@ -7,12 +7,15 @@ const positionsText = ['tech details!', 'the project!', 'photos'];
 const links = ["./tech.html", "./about.html", "./photos.html"];
 
 let bgVideo = document.getElementById("bg");
-const warning = document.getElementById("warning");
+
+let caughtPromise = false;
 
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 bgVideo.play().catch(() => {
-    let warningText = ""
+    caughtPromise = true;
+    let warningText = "";
+
     if (isIOS) {
         warningText =
           "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
@@ -27,6 +30,29 @@ bgVideo.play().catch(() => {
         }, 1000);
       };
 });
+
+
+window.onload = function () {
+
+    let warningText = ""
+
+    setTimeout(function () {
+        if (caughtPromise == false && (bgVideo.paused || bgVideo.readyState < 2)) {
+            let warningText = "";
+            if (isIOS) {
+                warningText =
+                "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
+            } else {
+                warningText =
+                "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
+            }
+        }
+
+        customAlert(warningText);
+
+    }, 1000);
+  };
+
 
 function customAlert(message) {
     // const overlay = document.getElementById("custom-alert-overlay");
