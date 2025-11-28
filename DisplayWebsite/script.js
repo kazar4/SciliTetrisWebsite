@@ -6,6 +6,35 @@ const positions = ['arc-1', 'arc-2', 'arc-3'];
 const positionsText = ['tech details!', 'the project!', 'photos'];
 const links = ["./tech.html", "./about.html", "./photos.html"];
 
+let bgVideo = document.getElementById("bg");
+const warning = document.getElementById("warning");
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+bgVideo.play().catch(() => {
+    let warningText = ""
+    if (isIOS) {
+        warningText =
+          "On iPhone, autoplay may be blocked when Low Power Mode is on. \n\n Please disable for background video";
+      } else {
+        warningText =
+          "Autoplay is disabled by your browser or power settings. Please disable for background video";
+      }
+      //warning.style.display = "block";
+    //   setTimeout(() => {alert(warningText)}, 500)
+      window.onload = function () {
+        setTimeout(function () {
+          alert(warningText);
+        }, 1000);
+      };
+});
+
+bgVideo.play = () => Promise.reject("Forced autoplay failure");
+
+if ('connection' in navigator && navigator.connection.saveData) {
+    alert("Data Saver mode is enabled. Background video may not play.");
+}
+
 function changeLocation(i) {
     console.log("hi")
     console.log("going to " + links[i])
