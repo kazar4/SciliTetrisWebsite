@@ -1,3 +1,5 @@
+alert("JS ran");
+
 let toggleOn = false;
 const buttonContainer = document.querySelector('.button-container');
 const originalButtonDetails = buttonContainer.innerHTML;
