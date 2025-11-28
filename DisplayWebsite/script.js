@@ -60,7 +60,7 @@ function customAlert(message) {
     box.appendChild(msg);
     box.appendChild(btn);
     overlay.appendChild(box);
-    document.body.appendChild(overlay);
+    document.getElementById("popupContainer").appendChild(overlay);
   
     //overlay.style.display = "flex";
 
