@@ -15,19 +15,32 @@ bgVideo.play().catch(() => {
     let warningText = ""
     if (isIOS) {
         warningText =
-          "On iPhone, autoplay may be blocked when Low Power Mode is on. \n\n Please disable for background video";
+          "On iPhone, autoplay may be blocked when Low Power Mode is on. \n Please disable to play background video";
       } else {
         warningText =
-          "Autoplay is disabled by your browser or power settings. Please disable for background video";
+          "Autoplay is disabled by your browser or power settings. \n Please disable to play background video";
       }
       //warning.style.display = "block";
     //   setTimeout(() => {alert(warningText)}, 500)
       window.onload = function () {
         setTimeout(function () {
-          alert(warningText);
+            customAlert(warningText);
         }, 1000);
       };
 });
+
+function customAlert(message) {
+    const overlay = document.getElementById("custom-alert-overlay");
+    const msg = document.getElementById("custom-alert-message");
+    const ok = document.getElementById("custom-alert-ok");
+  
+    msg.textContent = message;
+    overlay.style.display = "flex";
+  
+    ok.onclick = () => {
+      overlay.style.display = "none";
+    };
+  }
 
 bgVideo.play = () => Promise.reject("Forced autoplay failure");
 

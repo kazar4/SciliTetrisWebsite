@@ -475,3 +475,91 @@ tbody tr {
 tbody tr:first-child{
     border-left: none;
 }
+
+
+#custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  #custom-alert-box {
+    background: #1b1b1d;
+    padding: 15px 30px;
+    border-radius: 14px;
+  
+    /* NEW: responsive width */
+    /* width: 90vw; */
+    max-width: 80%;    /* looks good on tablets & desktop */
+    min-width: 260px;    /* ensures readability */
+  
+    /* Center content and allow line breaking */
+    text-align: center;
+    color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+    /* Smooth animation */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    animation: fadeInScale 0.22s ease-out;
+    font-size: clamp(14px, 2.5vw, 18px);
+  }
+  
+
+
+  
+  #custom-alert-message {
+    white-space: pre-wrap;       /* default: respect \n */
+    font-size: clamp(14px, 3vw, 18px);
+    line-height: 1.45;
+  }
+  
+  /* Small screens: ignore \n, keep text together */
+  @media screen and (max-width: 665px) {
+    #custom-alert-message {
+      white-space: normal;       /* \n ignored, text wraps normally */
+    }
+  }
+ 
+  /* Button */
+  #custom-alert-ok {
+    font-size: clamp(14px, 3vw, 18px);
+    padding: clamp(10px, 2.5vw, 14px);
+    margin-top: 1px;
+    padding: 10px 16px;
+    background: #e76e63;
+    color: #fff;
+    border: 1px solid #4a4a4d;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.15s ease;
+  }
+  
+  #custom-alert-ok:hover {
+    background: #4a4a4d;
+  }
+  
+  #custom-alert-ok:active {
+    transform: scale(0.97);
+  }
+  
+  /* Fade + scale animation */
+  @keyframes fadeInScale {
+    from {
+      transform: scale(0.92);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
