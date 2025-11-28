@@ -33,11 +33,10 @@ bgVideo.play().catch(() => {
 
 
 window.onload = function () {
-
-    let warningText = ""
-
     setTimeout(function () {
-        if (caughtPromise == false && (bgVideo.paused || bgVideo.readyState < 2)) {
+        //caughtPromise == false && 
+        if ((bgVideo.paused || bgVideo.readyState < 2)) {
+            alert("caught pause")
             let warningText = "";
             if (isIOS) {
                 warningText =
@@ -90,7 +89,7 @@ function customAlert(message) {
   
     //overlay.style.display = "flex";
 
-    msg.innerHTML = "TEEEEST if there is an alert"
+    msg.innerHTML = message;
 
     overlay.classList.add("active");
     box.style.display = "block";
